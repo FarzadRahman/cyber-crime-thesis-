@@ -13,12 +13,29 @@
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="post.html">Sample Post</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
+                @if(Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('post.add')}}">Make Post</a>
+                    </li>
+
+
+                <li class="nav-item">
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
+
+                    @endif
             </ul>
         </div>
     </div>
