@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+use Auth;
 
 class PostController extends Controller
 {
@@ -13,5 +15,15 @@ class PostController extends Controller
     public function add(){
 
         return view('post.add');
+    }
+
+    public function insert(Request $r){
+        $post=new Post();
+        $post->title=$r->title;
+        $post->details=$r->details;
+        $post->userId=Auth::user()->userId;
+        $post->save();
+
+        return back();
     }
 }
