@@ -14,14 +14,14 @@
 @include('menu')
 
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('public/img/home-bg.jpg')">
+<header class="masthead" style="height: 10%;">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="col-lg-12 col-md-12 mx-auto">
                 <div class="site-heading">
-                    <h1>Clean Blog</h1>
-                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    <h1>Cyber Crime</h1>
+                    <span class="subheading">Thesis Project</span>
                 </div>
             </div>
         </div>

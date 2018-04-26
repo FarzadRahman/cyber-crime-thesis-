@@ -36,6 +36,7 @@
 
 <!-- Bootstrap core JavaScript -->
 <script src="{{url('public/vendor/jquery/jquery.min.js')}}"></script>
+{{--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>--}}
 <script src="{{url('public/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
 <!-- Custom scripts for this template -->
