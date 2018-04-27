@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Yajra\DataTables\DataTables;
 
 class HomeController extends Controller
 {
@@ -24,9 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        $posts=Post::get();
-
-
         return view('home');
     }
+    public function postData(Request $r){
+        $posts=Post::select('title','posts.created_at','users.name')
+            ->leftJoin('users','posts.userId','users.userId')->get();
+        $datatables = Datatables::of($posts);
+        return $datatables->make(true);
+
+
+        }
+
 }

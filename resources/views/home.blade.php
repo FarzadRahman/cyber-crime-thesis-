@@ -18,31 +18,13 @@
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th width="70%">Title</th>
+                            <th width="20%">User</th>
+                            <th width="10%">Created At</th>
+
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
-                        </tr>
 
                         </tbody>
 
@@ -59,12 +41,34 @@
 @section('foot-js')
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <script>
+        // $(document).ready(function() {
+        //     $('#example').DataTable();
+        // } );
+
         $(document).ready(function() {
-            $('#example').DataTable();
-        } );
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            table =  $('#example').DataTable({
+                processing: true,
+                serverSide: true,
+                stateSave: true,
+                "ajax":{
+                    "url": "{!! route('posts.getData') !!}",
+                    "type": "POST",
+                    data:function (d){
+                        d._token="{{csrf_token()}}";
+                    },
+                },
+                columns: [
+                    { data: 'title', name: 'title'},
+                    { data: 'name', name: 'name' },
+                    { data: 'created_at', name: 'created_at' }
+
+                ]
+            });
+        });
     </script>
 
 @endsection
