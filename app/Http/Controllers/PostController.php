@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use Auth;
+use App\Http\Resources\PostResource;
 
 class PostController extends Controller
 {
@@ -12,7 +13,13 @@ class PostController extends Controller
     {
         $this->middleware('auth');
     }
+
+
+
+
+
     public function add(){
+
 
         return view('post.add');
     }
@@ -26,4 +33,7 @@ class PostController extends Controller
 
         return back();
     }
+
+
+
 }
