@@ -15,9 +15,6 @@ class PostController extends Controller
     }
 
 
-
-
-
     public function add(){
 
 
@@ -25,13 +22,27 @@ class PostController extends Controller
     }
 
     public function insert(Request $r){
-        $post=new Post();
+
+        if ($r->id){
+            $post=Post::findOrFail($r->id);
+        }
+        else{
+            $post=new Post();
+        }
         $post->title=$r->title;
         $post->details=$r->details;
         $post->userId=Auth::user()->userId;
         $post->save();
 
         return back();
+    }
+
+    public function getSingle($id){
+
+
+        $post=Post::findOrFail($id);
+        return view('post.show')->with('post',$post);
+
     }
 
 

@@ -21,6 +21,7 @@
                             <th width="70%">Title</th>
                             <th width="20%">User</th>
                             <th width="10%">Created At</th>
+                            <th width="10%">action</th>
 
                         </tr>
                         </thead>
@@ -64,11 +65,24 @@
                 columns: [
                     { data: 'title', name: 'title'},
                     { data: 'name', name: 'name' },
-                    { data: 'created_at', name: 'created_at' }
+                    { data: 'created_at', name: 'created_at' },
+                    { "data": function(data){
+                        return '<a class="btn btn-default btn-sm" data-panel-id="'+data.postId+'"onclick="editPost(this)"><i class="fa fa-edit"></i></a>';},
+                        "orderable": false, "searchable":false }
 
                 ]
             });
         });
+
+
+
+        function editPost(x) {
+            btn = $(x).data('panel-id');
+            var url = '{{route("post.getSingle", ":id") }}';
+            //alert(url);
+            var newUrl=url.replace(':id', btn);
+            window.location.href = newUrl;
+        }
     </script>
 
 @endsection
