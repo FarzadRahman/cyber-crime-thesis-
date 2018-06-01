@@ -14,7 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+//Helps On Reload Page
+Route::get('/{contact?}', function () {
+    return view('welcome');
+})->where('vue_capture', '[\/\w\.-]*');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
