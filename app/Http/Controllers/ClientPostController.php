@@ -22,11 +22,12 @@ class ClientPostController extends Controller
             ->orWhere('details','like','%'.$r->search.'%')
             ->paginate(3);
 
-
-
         return PostResource::collection($posts);
 
+        }
 
+    public function contact(Request $r){
 
+        return $r;
     }
 }

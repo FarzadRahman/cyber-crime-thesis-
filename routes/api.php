@@ -20,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //List Posts
 Route::get('posts','ClientPostController@index');
 Route::post('search','ClientPostController@search');
+Route::post('contact','ClientPostController@contact');
+
 //get individual
 //Route::get('post/{id}','PostController@show');
 ////Create New

@@ -43263,7 +43263,7 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c(
           "a",
-          { staticClass: "navbar-brand", attrs: { href: "index.html" } },
+          { staticClass: "navbar-brand", attrs: { href: "/cyber-crime" } },
           [_vm._v("Start Bootstrap")]
         ),
         _vm._v(" "),
@@ -46451,7 +46451,7 @@ var routes = [{ path: baseUrl + '/', component: __WEBPACK_IMPORTED_MODULE_0__com
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(61)
 /* template */
 var __vue_template__ = __webpack_require__(60)
 /* template functional */
@@ -46499,7 +46499,81 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Contact Us")])
+  return _c("div", [
+    _c("h1", [_vm._v("Contact Us")]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.sendPost($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.title,
+                expression: "title"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              id: "title",
+              placeholder: "enter title",
+              required: ""
+            },
+            domProps: { value: _vm.title },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.title = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.body,
+                expression: "body"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", placeholder: "enter body", required: "" },
+            domProps: { value: _vm.body },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.body = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-success", attrs: { type: "submit" } },
+          [_vm._v("Insert")]
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -46510,6 +46584,57 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-1ac7daf9", module.exports)
   }
 }
+
+/***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            title: '',
+            body: ''
+        };
+    },
+
+    methods: {
+        sendPost: function sendPost() {
+            // alert($('#title').val());
+            var vm = this;
+            axios.post("api/contact", {
+                title: vm.title, body: vm.body
+            }).then(function (res) {
+                console.log(res.data);
+                vm.title = '';
+                vm.body = '';
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    }
+
+});
 
 /***/ })
 /******/ ]);

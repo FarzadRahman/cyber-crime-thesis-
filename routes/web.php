@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 //Helps On Reload Page
 Route::get('/{contact?}', function () {
     return view('welcome');
