@@ -7,9 +7,9 @@
             </div>
 
         <ul class="pagination">
-            <li v-bind:class="[{disabled:!pagination.prev_page_url}]"><a href="#" @click="fetchPosts(pagination.prev_page_url)">prev</a></li>
-            <li class="disabled"><a>Page {{pagination.currrent_page}} of {{pagination.last_page}}</a></li>
-            <li v-bind:class="[{disabled:!pagination.next_page_url}]"><a href="#" @click="fetchPosts(pagination.next_page_url)">next</a></li>
+            <li class="page-item" v-bind:class="[{disabled:!pagination.prev_page_url}]"><a href="#" class="page-link" @click="fetchPosts(pagination.prev_page_url)">prev</a></li>
+            <li  class="disabled page-item"><a class="page-link">Page {{pagination.currrent_page}} of {{pagination.last_page}}</a></li>
+            <li class="page-item" v-bind:class="[{disabled:!pagination.next_page_url}]"><a href="#" class="page-link" @click="fetchPosts(pagination.next_page_url)">next</a></li>
         </ul>
         <div class="jumbotron" v-for="post in posts">
             <h3>{{post.title}}</h3>

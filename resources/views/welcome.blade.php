@@ -27,8 +27,8 @@
     </header>
 
     <div class="container">
-        {{--<router-view></router-view>--}}
-        <posts></posts>
+        <router-view></router-view>
+        {{--<posts></posts>--}}
 
     </div>
 

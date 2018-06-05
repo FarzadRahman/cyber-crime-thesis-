@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Http\Resources\PostResource;
+use App\Contact;
 class ClientPostController extends Controller
 {
     public function index(){
@@ -22,11 +23,18 @@ class ClientPostController extends Controller
             ->orWhere('details','like','%'.$r->search.'%')
             ->paginate(3);
 
-
-
         return PostResource::collection($posts);
 
+        }
 
+    public function contact(Request $r){
+        $contact=new Contact();
+        $contact->title=$r->title;
+        $contact->body=$r->body;
+        $contact->personEmail=$r->personEmail;
+        $contact->personNumber=$r->personNumber;
+        $contact->save();
 
+        return $r;
     }
 }
