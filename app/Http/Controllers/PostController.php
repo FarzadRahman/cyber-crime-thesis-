@@ -14,7 +14,6 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-
     public function add(){
 
 
@@ -39,9 +38,10 @@ class PostController extends Controller
 
     public function getSingle($id){
 
-
         $post=Post::findOrFail($id);
-        return view('post.show')->with('post',$post);
+        
+        return view('post.show')
+                ->with('post',$post);
 
     }
 
