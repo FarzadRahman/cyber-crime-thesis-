@@ -52,8 +52,11 @@
 
                 }).then(function (res) {
                     console.log(res.data);
+                    alert('Submitted Successfully');
                     vm.title='';
                     vm.body='';
+                    vm.personNumber='';
+                    vm.personEmail='';
 
                 })
                     .catch(function (error) {

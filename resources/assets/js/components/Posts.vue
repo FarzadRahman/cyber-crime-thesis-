@@ -77,7 +77,7 @@
                 }).then(function (res) {
                     // console.log(vm.posts);
                     vm.posts=res.data.data;
-                    vm.makePagination(res.data.meta,res.data.links);
+                    //vm.makePagination(res.data.meta,res.data.links);
                 })
                     .catch(function (error) {
                         console.log(error);

@@ -14998,7 +14998,7 @@ if (inBrowser && window.Vue) {
 
 var baseUrl = '/cyber-crime';
 
-var routes = [{ path: baseUrl + '/', component: __WEBPACK_IMPORTED_MODULE_0__components_Posts_vue___default.a }, { path: baseUrl + '/contact', component: __WEBPACK_IMPORTED_MODULE_1__components_Contact_vue___default.a }];
+var routes = [{ path: baseUrl + '/', component: __WEBPACK_IMPORTED_MODULE_0__components_Posts_vue___default.a, name: 'index' }, { path: baseUrl + '/index', component: __WEBPACK_IMPORTED_MODULE_0__components_Posts_vue___default.a }, { path: baseUrl + '/contact', component: __WEBPACK_IMPORTED_MODULE_1__components_Contact_vue___default.a }];
 
 /***/ }),
 /* 17 */
@@ -15134,7 +15134,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (res) {
                 // console.log(vm.posts);
                 vm.posts = res.data.data;
-                vm.makePagination(res.data.meta, res.data.links);
+                //vm.makePagination(res.data.meta,res.data.links);
             }).catch(function (error) {
                 console.log(error);
             });
@@ -15433,8 +15433,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             }).then(function (res) {
                 console.log(res.data);
+                alert('Submitted Successfully');
                 vm.title = '';
                 vm.body = '';
+                vm.personNumber = '';
+                vm.personEmail = '';
             }).catch(function (error) {
                 console.log(error);
             });
@@ -46506,7 +46509,7 @@ var render = function() {
         _c(
           "a",
           { staticClass: "navbar-brand", attrs: { href: "/cyber-crime" } },
-          [_vm._v("Start Bootstrap")]
+          [_vm._v("Cyber Law")]
         ),
         _vm._v(" "),
         _vm._m(0),
@@ -46524,7 +46527,10 @@ var render = function() {
               [
                 _c(
                   "router-link",
-                  { staticClass: "nav-item", attrs: { to: "", tag: "li" } },
+                  {
+                    staticClass: "nav-item",
+                    attrs: { to: "index", exact: "", tag: "li" }
+                  },
                   [_c("a", { attrs: { href: "#" } }, [_vm._v("Home")])]
                 ),
                 _vm._v(" "),

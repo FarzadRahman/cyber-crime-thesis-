@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
 
-            <a class="navbar-brand" href="/cyber-crime">Start Bootstrap</a>
+            <a class="navbar-brand" href="/cyber-crime">Cyber Law</a>
             <!--<router-link to="" class="nav-item">Home</router-link>-->
 
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
 
-                    <router-link to="" tag="li" class="nav-item"><a href="#">Home</a></router-link>
+                    <router-link to="index" exact tag="li" class="nav-item"><a href="#">Home</a></router-link>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                     </li>
