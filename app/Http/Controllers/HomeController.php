@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Contact;
 use Yajra\DataTables\DataTables;
 
 class HomeController extends Controller
@@ -32,8 +33,21 @@ class HomeController extends Controller
             ->leftJoin('users','posts.userId','users.userId')->get();
         $datatables = Datatables::of($posts);
         return $datatables->make(true);
-
-
         }
+
+
+    public function showContact(){
+
+        return view('contact.show');
+    }
+
+    public function getContactData(Request $r){
+        $contact=Contact::get();
+
+        $datatables = Datatables::of($contact);
+        return $datatables->make(true);
+
+
+    }
 
 }

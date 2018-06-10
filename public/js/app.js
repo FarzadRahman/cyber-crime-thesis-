@@ -14996,7 +14996,7 @@ if (inBrowser && window.Vue) {
 
 
 
-var baseUrl = '/cyber-crime';
+var baseUrl = '/cybercop';
 
 var routes = [{ path: baseUrl + '/', component: __WEBPACK_IMPORTED_MODULE_0__components_Posts_vue___default.a, name: 'index' }, { path: baseUrl + '/index', component: __WEBPACK_IMPORTED_MODULE_0__components_Posts_vue___default.a }, { path: baseUrl + '/contact', component: __WEBPACK_IMPORTED_MODULE_1__components_Contact_vue___default.a }];
 
@@ -46509,7 +46509,7 @@ var render = function() {
         _c(
           "a",
           { staticClass: "navbar-brand", attrs: { href: "/cyber-crime" } },
-          [_vm._v("Cyber Law")]
+          [_vm._v("CyberCop")]
         ),
         _vm._v(" "),
         _vm._m(0),

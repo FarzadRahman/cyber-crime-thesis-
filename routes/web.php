@@ -19,6 +19,10 @@ Route::get('post/{id}','PostController@getSingle')->name('post.getSingle');
 Route::post('post/insert','PostController@insert')->name('post.insert');
 Route::post('post/getData','HomeController@postData')->name('posts.getData');
 
+//Show Contacrs
+Route::get('/contact/show','HomeController@showContact')->name('contact.show');
+Route::post('/contact/show','HomeController@getContactData')->name('contact.getData');
+
 
 
 
