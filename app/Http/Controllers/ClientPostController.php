@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Http\Resources\PostResource;
 use App\Contact;
+use App\Ipinfo;
 class ClientPostController extends Controller
 {
     public function index(){
@@ -35,6 +36,20 @@ class ClientPostController extends Controller
         $contact->personNumber=$r->personNumber;
         $contact->save();
 
+        $ip=$r->ip;
+
+        $ipInfo=new Ipinfo();
+        $ipInfo->contactId=$contact->contactId;
+        $ipInfo->asn=$ip['asn'];
+        $ipInfo->city=$ip['city'];
+        $ipInfo->country_name=$ip['country_name'];
+        $ipInfo->ip=$ip['ip'];
+        $ipInfo->isp=$ip['isp'];
+        $ipInfo->latitude=$ip['latitude'];
+        $ipInfo->longitude=$ip['longitude'];
+        $ipInfo->org=$ip['org'];
+        $ipInfo->postal_code=$ip['postal_code'];
+        $ipInfo->save();
         return $r;
     }
 }

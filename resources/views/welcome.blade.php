@@ -15,6 +15,8 @@
             padding: 100px 0;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+
 </head>
 <body>
 
@@ -45,5 +47,6 @@
 </div>
 
 <script src="{{url('public/js/app.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 </body>
 </html>
