@@ -22,6 +22,7 @@ Route::post('post/getData','HomeController@postData')->name('posts.getData');
 //Show Contacrs
 Route::get('/contact/show','HomeController@showContact')->name('contact.show');
 Route::post('/contact/show','HomeController@getContactData')->name('contact.getData');
+Route::post('/contact/getIp','HomeController@getIp')->name('Ip.get');
 
 
 

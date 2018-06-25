@@ -14996,7 +14996,7 @@ if (inBrowser && window.Vue) {
 
 
 
-var baseUrl = '/cybercop';
+var baseUrl = '/thesis';
 
 var routes = [{ path: baseUrl + '/', component: __WEBPACK_IMPORTED_MODULE_0__components_Posts_vue___default.a, name: 'index' }, { path: baseUrl + '/index', component: __WEBPACK_IMPORTED_MODULE_0__components_Posts_vue___default.a }, { path: baseUrl + '/contact', component: __WEBPACK_IMPORTED_MODULE_1__components_Contact_vue___default.a }];
 

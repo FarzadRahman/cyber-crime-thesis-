@@ -42,12 +42,17 @@ class HomeController extends Controller
     }
 
     public function getContactData(Request $r){
-        $contact=Contact::get();
+        $contact=Contact::orderBy('contactId','desc')->get();
 
         $datatables = Datatables::of($contact);
         return $datatables->make(true);
+        }
 
-
+    public function getIp(Request $r){
+        $contact=Contact::where('contact.contactId',$r->id)
+            ->leftJoin('ipinfo','ipinfo.contactId','contact.contactId')
+            ->first();
+        return view('ipinfo')->with('contact',$contact);
     }
 
 }
