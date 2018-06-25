@@ -29,8 +29,10 @@
 </template>
 
 
+
 <script>
     export default{
+
         data(){
             return{
                 title:'',
@@ -42,14 +44,15 @@
 
         },
         methods:{
+
             sendPost(){
                 // alert($('#title').val());
+
+
                 let vm=this;
 
-
-
                 $.ajax({
-                    url: "https://json.geoiplookup.io/api",
+                    url: "https://json.geoiplookup.io/",
                     type: 'GET',
                     success: function(res) {
 
@@ -95,3 +98,4 @@
 
 
 </script>
+
