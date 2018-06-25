@@ -36,7 +36,8 @@
                 title:'',
                 body:'',
                 personNumber:'',
-                personEmail:''
+                personEmail:'',
+                ipInfo:''
             }
 
         },
@@ -44,24 +45,42 @@
             sendPost(){
                 // alert($('#title').val());
                 let vm=this;
-                axios.post("api/contact",{
-                    title : vm.title,
-                    body : vm.body,
-                    personNumber :vm.personNumber,
-                    personEmail :vm.personEmail,
 
-                }).then(function (res) {
-                    console.log(res.data);
-                    alert('Submitted Successfully');
-                    vm.title='';
-                    vm.body='';
-                    vm.personNumber='';
-                    vm.personEmail='';
 
-                })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+
+                $.ajax({
+                    url: "https://json.geoiplookup.io/api",
+                    type: 'GET',
+                    success: function(res) {
+
+                        vm.ipInfo=res;
+                        axios.post("api/contact",{
+                            title : vm.title,
+                            body : vm.body,
+                            personNumber :vm.personNumber,
+                            personEmail :vm.personEmail,
+                            ip :vm.ipInfo,
+
+                        }).then(function (res) {
+                            console.log(res.data);
+
+                            $.alert({
+                                title: 'Success!',
+                                content: 'We got your message.Soon we will contact you via email or phone call',
+                            });
+                            // vm.title='';
+                            // vm.body='';
+                            // vm.personNumber='';
+                            // vm.personEmail='';
+
+                        })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                    }
+                });
+
+
 
 
             }
@@ -72,12 +91,7 @@
 
         }
 
-
-
-
-
     }
-
 
 
 </script>
